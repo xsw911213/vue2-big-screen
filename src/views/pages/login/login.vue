@@ -5,12 +5,19 @@
   height: 100%;
   // background: linear-gradient(-190deg, rgb(30, 34, 105) 65%, #e884a1);
 
-  #iframe{
+  // #iframe{
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  //   z-index: 0;
+  // }
+  .bg{
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 0;
-  }
+    // z-index: -1;
+    object-fit: cover;
+   }
   .login-box{
     position: absolute;
     width: 450px;
@@ -33,7 +40,7 @@
 
 <template>
   <div class="login">
-    <iframe ref="iframe" src="https://wellwell.wang/canvas_galaxy/" id="iframe" frameborder="0"></iframe>
+     <img class="bg" src="@/assets/bg.jpg" alt="" srcset="">
     <a-card v-show="boxShow" title="登录" class="login-box">
       <a-form :form="form">
          <a-form-item :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol" label="用户名" >
@@ -93,9 +100,10 @@ export default {
     }
   },
   mounted () {
-    this.$refs.iframe.onload = () => {
-      this.boxShow = true
-    }
+    this.boxShow = true
+    // this.$refs.iframe.onload = () => {
+    //   this.boxShow = true
+    // }
   }
 }
 </script>
